@@ -10914,9 +10914,12 @@ buildDOM: function(result) {
   getRequest: function() {
     let _this = this;
     let date = this.randomDate(new Date(1995, 5, 16), new Date());
-    let url = "https://api.nasa.gov/planetary/apod?api_key=p4XNai6uNpYsJ3AKfZ3EQaLWW5rCAZfo5eRUX1zz&date=" + date;
+    // let url = "https://api.nasa.gov/planetary/apod?api_key=p4XNai6uNpYsJ3AKfZ3EQaLWW5rCAZfo5eRUX1zz&date=" + date;
+    var url = "https://api.nasa.gov/planetary/apod?api_key=";
+    var nasaKey = "p4XNai6uNpYsJ3AKfZ3EQaLWW5rCAZfo5eRUX1zz";
+    
     $.ajax({
-        url: url
+        url: url + nasaKey + '&date=' + date
     }).done(function(result){
         _this.buildDOM(result);
     }).fail(function(result){
